@@ -1,0 +1,266 @@
+@import "padrao-cores";
+@import "animacoes";
+@import "modal";
+
+@import url(' https://fonts.cdnfonts.com/css/new-super-mario-font-u ');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'New Super Mario Font U', sem serifa;                                    
+}
+
+.cenario {
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+
+    background-image: linear-gradient($corAzul, $corBranco);
+    border-bottom: 18px solid $corVerde;
+
+    &.start {
+        .cloud {
+            animation: move-nuvens 30s infinite linear;
+        }
+        .cloud-two {
+            animation: move-nuvens 30s infinite linear 15s;
+        }
+        .flor-mario {
+            animation: move-bala 4s infinite linear 20s;
+        }
+        /*.pipe {
+            animation: move-pipe 4s infinite linear 2s;
+        }
+        .bala {
+            animation: move-bala 4s infinite linear 4s;
+        }*/
+        .moeda {
+            animation: move-moeda 3.9s infinite linear 2s;
+        }
+        .moeda-two {
+            animation: move-moeda 3.9s infinite linear 2.4s;
+        }
+        .moeda-tree {
+            animation: move-moeda 3.9s infinite linear 2.8s;
+        }
+        .star {
+            animation: move-star 11s infinite linear 4s;
+        }
+        .star-two {
+            animation: move-star 6s infinite linear 7s;
+        }
+    }
+
+    .header {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    
+        .wrapper-top {
+            width: 600px;
+            margin-top: 30px;
+            padding: 15px;
+            background-color: $corBranco;        
+            border: solid 4px $corAzul;
+            box-shadow: 3px 3px $corAmarelo, 1px 0 0.4em rgb(6, 6, 6);
+            opacity: 80%;
+            display: flex;
+            justify-content: space-between;
+            font-size: 30px;
+            position: relative;
+
+            .coluna {
+                display: block;
+                text-align: center;
+
+                .titulo {
+                    display: block;
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: $corAzul;
+                }
+            }
+            .coluna-nome-jogador {
+                width: 200px;
+            }
+
+            .img-logo {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: -65px;
+                margin: 0 auto;
+                width: 200px;
+            }
+
+            .placar {
+                display: flex;
+                gap: 10px;
+            }
+        }
+    }
+
+    .sleep {
+        width: 100%;
+        height: 100vh;
+        display: none;
+
+        &.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            animation: fade-up .5s forwards;
+        }
+
+        .contagem {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            height: 200px;
+            background-color: white;
+            border-radius: 50%;
+            border: solid 8px $corVermelho;
+            box-shadow: 2px 2px 20px rgba(0, 0, 0, .8);
+            font-size: 160px;
+            padding-top: 5px;
+            color: $corAmarelo;
+            margin-top: 30px;
+            animation: pulsar 1s infinite linear;
+        }
+
+        .wrapper-regras {
+            width: 600px;
+            background-color: white;
+            //height: 200px;      
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            grid-template-columns: repeat(3, 1fr);
+            margin-top: 30px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 20px rgba(0, 0, 0, .7);
+            gap: 5px;
+            padding: 10px;
+
+            .bloco-regras {
+                display: grid;
+                grid-template-rows: auto;
+                gap: 10px;
+                justify-content: center;
+                justify-items: center;
+                align-items: center;
+                text-align: center;
+                font-size: 14px;
+                background-color: #f2f2f2;
+                border-radius: 8px;
+                padding: 10px;
+
+                .img-regras {
+                    width: 60px;
+                }
+            }
+        }
+
+        .arrow-up, .arrow-down {
+            width: 30px;
+        }
+        .tecla-space {
+            width: 53px;
+        }
+    }
+
+    .mario {
+        width: 120px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    .cloud {
+        position: absolute;
+        top: 130px;
+        right: -500px;
+    }
+    .cloud-two {
+        position: absolute;
+        top: 230px;
+        right: -500px;
+    }
+    .flor-mario {
+        position: absolute;
+        bottom: -1px;
+        width: 40px;
+        right: -500px;
+    }
+    .pipe {
+        width: 60px;
+        position: absolute;
+        bottom: 0;
+        right: -600px;
+    }
+    .bala {
+        position: absolute;
+        bottom: 80px;
+        width: 180px;
+        right: -1000px;
+    }
+    .moeda {
+        width: 40px;
+        position: absolute;
+        bottom: 110px;
+        right: -60px;
+    }
+    .moeda-two {
+        width: 40px;
+        position: absolute;
+        bottom: 110px;
+        right: -60px;
+    }
+    .moeda-tree {
+        width: 40px;
+        position: absolute;
+        bottom: 110px;
+        right: -60px;
+    }
+    .star {
+        width: 50px;
+        position: absolute;
+        top: 270px;
+        right: -60px;
+    }
+    .star-two {
+        width: 50px;
+        position: absolute;
+        top: 140px;
+        right: -60px;
+    }       
+    .jump {
+        animation: jump-mario 1.5s;
+    }
+    .fly {
+        animation: fly-mario 1.5s linear;
+    }
+    .squat {
+        width: 70px;
+        left: 40px;
+    }
+}
+
+
+/*estiloGlobal*/
+.azul {
+    color: $corAzul;
+}
+.amarelo {
+    color: $corAmarelo;
+}
+.verde {
+    color: $corVerde;
+}
+.vermelho {
+    color: $corVermelho;
+}

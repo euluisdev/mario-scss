@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/estilo.css">
+    <link rel="shortcut icon" href="imagens/mario-favicon.png" type="image/x-icon">
+    <link href=" https://fonts.cdnfonts.com/css/new-super-mario-font-u " rel="stylesheet">
+    <script src="/js/script.js" defer type="module"></script>
+    <title>Jogo Super Mario</title>
+</head>
+<body>
+    <main class="cenario" id="cenario">  <!--start-->
+        <header class="header">
+            <div class="wrapper-top">
+                <div class="coluna coluna-nome-jogador">
+                    <span class="titulo">Jogador</span>
+                    <span class="texto verde" id="txtNome">NomeJogador</span>
+                </div>
+                <img src="./imagens/logo-top.png" class="img-logo">
+
+                <div class="placar">
+                    <div class="coluna">
+                        <span class="titulo">Moedas</span>
+                        <span class="texto amarelo" id="txtMoedas">00</span>
+                    </div>
+                    <div class="coluna">
+                        <span class="titulo">Estrelas</span>
+                        <span class="texto vermelho" id="txtStar">00</span>
+                    </div>
+                    <div class="coluna">
+                        <span class="titulo">Tempo</span>
+                        <span class="texto verde" id="txtTime">00</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <img src="./imagens/cloud.png" class="cloud" id="cloud">
+        <img src="./imagens/cloud.png" class="cloud-two" id="cloudTwo">
+        <img src="./imagens/tubo.png" class="pipe" id="imgPipe">
+        <img src="./imagens/flor.png" class="flor-mario" id="florMario">
+        <img src="./imagens/bala.png" class="bala" id="imgBala">
+        <img src="./imagens/moeda.png" class="moeda" id="imgMoeda">
+        <img src="./imagens/moeda.png" class="moeda-two" id="imgMoeda">
+        <img src="./imagens/moeda.png" class="moeda-tree" id="imgMoeda">
+        <img src="./imagens/star.png" class="star" id="imgStar">
+        <img src="./imagens/star.png" class="star-two" id="imgStar">
+        <img src="./imagens/mario-fogo.png" class="mario" id="mario">
+
+        <section class="sleep" id="modalSleep">  <!--active-->
+            <div class="contagem">
+                <span class="number-contagem" id="numberContagem">5</span>
+            </div>
+
+            <div class="wrapper-regras">
+                <div class="bloco-regras">
+                    <img src="imagens/mario-junp.png" class="img-regras">
+                    <span class="texto">Use a tecla <span class="vermelho">Arrow Up</span> para pular!</span>
+                    <img src="imagens/arrow-up.png" class="arrow-up">
+                </div>
+                <div class="bloco-regras">
+                    <img src="imagens/mario-agachado.png" class="img-regras">
+                    <span class="texto">Use a tecla <span class="amarelo">Arrow Down</span> para abaixar!</span>
+                    <img src="imagens/arrow-down.png" class="arrow-down">
+                </div>
+                <div class="bloco-regras">
+                    <img src="imagens/mario-fly.png" class="img-regras">
+                    <span class="texto">Use a tecla <span class="verde">Space</span> do teclado para Voar!</span>
+                    <img src="imagens/tecla-space.png" class="tecla-space">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="modal habilitar" id="modal">      <!--habilitar-->
+        <section class="modal-login active" id="modalLogin">      <!--active-->
+            <h1 class="titulo"><span class="azul">PRONTO </span><span class="amarelo">PARA </span><span class="vermelho">UM </span><span class="verde">NOVO </span><span class="azul">DESAFIO?</span></h1>
+
+        <input type="text" class="input-jogador" id="inputJogador" placeholder="Jogador..." onfocus="true">
+
+        <button class="btn-modal btn-start btn-red-tr" id="btnStart" disabled>INICIAR JOGO!</button>
+
+        <p class="regras">Use a tecla <span class="vermelho">"Arrow Up",</span> <span class="verde">"Arrow Down"</span> ou <span class="azul">"Space"</span> do teclado para mover o Mario no jogo.</p>
+
+        <img src="/imagens/mario-murra.png" class="mario-murrando mario-geral">
+        </section>
+
+        <section class="modal-game-over" id="modalGameOver">     <!--active-->
+            <h1 class="titulo"><span class="azul">QUE </span><span class="amarelo">PENA, </span><span class="vermelho">VOCE </span><span class="verde">PERDEU!</span></h1>
+
+            <img src="imagens/mario-game-over.webp" class="mario-game-over">
+            <div class="wrapper-btn">
+                <button class="btn-modal btn-red-tr btn-ranking" id="btnRanking">Ranking</button>
+                <button class="btn-modal btn-red-tr btn-reiniciar" id="btnReiniciar">REINICIAR</button>
+            </div>
+            <img src="imagens/mario-sad.png" class="mario-geral mario-sad">
+        </section>
+
+        <section class="modal-ranking" id="modalRanking">     <!--active-->
+            <h1 class="titulo"><span class="azul">R</span><span class="amarelo">A</span><span class="vermelho">N</span><span class="verde">K</span><span class="azul">I</span><span class="amarelo">N</span><span class="vermelho">G</span>
+            </h1>
+            <div class="wrapper-tabela">
+                <table class="tabela" id="tabela" border="1">
+                    <tr class="linha">
+                        <td class="coluna">Posicao</td>
+                        <td class="coluna">Jogador</td>
+                        <td class="coluna">Moedas</td>
+                        <td class="coluna">Estrelas</td>
+                        <td class="coluna">Tempo</td>
+                        <td class="coluna">Pontuacao</td>
+                    </tr>
+                    <!-- <tr class="linha">
+                        <td class="coluna">01</td>
+                        <td class="coluna">Bernardo</td>
+                        <td class="coluna">05</td>
+                        <td class="coluna">02</td>
+                        <td class="coluna">30</td>
+                        <td class="coluna">37</td>
+                    </tr> -->
+                </table>
+            </div>
+
+            <p class="regras">"Regras: Cada moeda coletada vale 2 pontos, cada estrela vale 5 pontos, e cada segundo do jogo, vale 1 ponto."
+            </p>
+
+            <button class="btn-modal btn-red-tr" id="btnReiniciar">REINICIAR</button>
+            <img src="imagens/mario-star.png" class="mario-geral mario-star">
+            <img src="imagens/mario-bolt.png" class="mario-geral mario-bolt">
+        </section>
+    </section>
+
+    <!--audioDoJogo-->
+    <audio src="audio/audio-abertura.wav" id="som-abertura"></audio>
+    <audio src="audio/audio-agachado.wav" id="som-agachado"></audio>
+    <audio src="audio/audio-estrela.wav" id="som-estrela"></audio>
+    <audio src="audio/audio-game-over.wav" id="som-game-over"></audio>
+    <audio src="audio/audio-moeda.wav" id="som-moeda"></audio>
+    <audio src="audio/audio-perdeu.wav" id="som-perdeu"></audio>
+    <audio src="audio/audio-principal.mp3" id="som-principal"></audio>
+    <audio src="audio/audio-pulo.wav" id="som-pulo"></audio>
+    <audio src="audio/audio-ranking.wav" id="som-ranking"></audio>
+    <audio src="audio/audio-velocidade.wav" id="som-velocidade"></audio>
+    <audio src="audio/audio-voar.wav" id="som-voar"></audio>
+</body>
+</html>

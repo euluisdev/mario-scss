@@ -1,0 +1,228 @@
+
+.modal {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .8);
+    display: none;
+
+    &.habilitar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 100;
+    }
+
+    .modal-login {
+        width: 600px;
+        min-height: 420px;
+        max-height: 500px;
+        background-image: url(/imagens/wellcome.jpg);
+        background-position: top center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        box-shadow: 2px 2px 20px $corAmarelo;
+        padding: 50px;
+        border-radius: 30px;
+        display: none;
+        position: relative;
+
+        &.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            animation: fade-up 1s forwards;
+        }
+
+        .input-jogador {
+            width: 300px;
+            height: 50px;
+            border: solid 3px $corAzul;
+            border-radius: 10px;
+            padding: 15px;
+            font-size: 18px;
+            outline: none;
+        }
+
+        .regras {
+            text-align: center;
+            font-size: 14px;
+            background-color: rgba(255, 255, 255, .60);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    }
+
+    //modal game over
+    .modal-game-over {
+        width: 600px;
+        min-height: 420px;
+        max-height: 500px;
+        background-image: linear-gradient($corAzul, rgb(231, 231, 231));
+        box-shadow: 2px 2px 20px rgb(251, 2, 2);
+        padding: 50px;
+        border-radius: 30px;
+        display: none;
+        
+        &.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            animation: fade-up 1s forwards;
+        }
+
+        .mario-sad {
+            width: 200px;
+        }
+        .mario-game-over {
+            width: 300px;
+        }
+        .wrapper-btn {
+            display: flex;
+            gap: 30px;
+        }
+    }
+
+    .modal-ranking {
+        width: 600px;
+        min-height: 420px;
+        max-height: 500px;
+        background-image: linear-gradient($corAzul, rgb(226, 226, 226));
+        border-radius: 30px;
+        padding: 50px;
+        display: none;
+
+        &.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            animation: fade-up 1s forwards;
+        }
+
+        .wrapper-tabela {
+            width: 110%;
+            max-height: 300px;
+            overflow-y: scroll;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+
+            &::-webkit-scrollbar {
+                width: 10px;
+            }
+            &::-webkit-scrollbar-thumb {
+                background: $corAzul;
+                border-left: 3px solid transparent;
+                border-right: 3px solid transparent;
+                border-radius: 5px;
+            }
+            &::-webkit-scrollbar-track {
+                background-color: transparent;
+                border-radius: 5px;
+            }
+
+            .tabela {
+                width: 99%;
+                margin-bottom: 15px;
+                color: white;
+                text-align: center;
+                border-radius: 5px;
+                -webkit-text-stroke: 0.6px black;
+
+                &.coluna {
+                    padding: 5px;
+                }
+            }
+        }
+
+        .regras {
+            width: 450px;
+            margin-top: 15px;
+            font-family: sans-serif;
+            color: white;
+            font-size: 14px;
+        }
+    }
+
+    //estilo do botão red dentro do modal
+    .btn-modal {
+        background: none;
+        border: none;
+        width: 300px;
+        height: 70px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-content: flex-end;
+        background-color: #bd827c;
+        text-transform: uppercase;
+        padding: 15px;
+        margin: 20px 0px;
+
+        font-size: 34px;
+        font-weight: 600;
+
+        color: #fff;
+
+        transition: 1s;
+    }
+
+    .btn-red-tr:not(:disabled) {
+        cursor: pointer;
+        background-color: $corVermelho;
+
+        &::before {
+            position: absolute;
+            content: "";
+            border-top: 5px solid lighten($corVermelho, 5%);
+            border-left: 5px solid lighten($corVermelho, 5%);
+            border-right: 5px solid darken($corVermelho, 5%);
+            border-bottom: 5px solid darken($corVermelho, 5%);
+
+            top: 0px;
+            right: 0%;
+            left: 0%;
+            bottom: 0%;
+            
+            transition: 0.5s;
+        }
+
+        &:hover {
+            box-shadow: 7px 7px darken($corVermelho, 20%) -7px -7px lighten($corVermelho, 20%);
+
+            &::before {
+                border: 0px;
+            }
+        }
+    }
+
+    .btn-ranking, .btn-reiniciar {
+        width: 200px;
+        height: 60px;
+        font-size: 25px;
+    }
+
+    .titulo {
+        font-size: 37px;
+        text-align: center;
+        margin: 20px 0px;
+        -webkit-text-stroke: 2px black;
+    }
+
+    .mario-geral {
+        position: absolute;
+        width: 190px;
+        right: -100px;
+        bottom: 0;
+
+        &.mario-bolt, &.mario-murrando {
+            left: -100px;
+        }
+    }
+}
+
