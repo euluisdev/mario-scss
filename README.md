@@ -5,7 +5,7 @@ Mario Game Project using JavaScript and scss only. Great learning!
 
 Um simples jogo do Mario Bros desenvolvido em HTML, CSS, SCSS e JavaScript.
 
-## Licença
+## Licença 
 Este projeto está sob a Licença MIT.
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/euluisdev/mario-scss/blob/master/LICENSE)
 
